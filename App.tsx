@@ -1,44 +1,61 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import React from 'react';
 import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
+const App = () => {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <SafeAreaView>
+      <View>
+        <Text>Hello World</Text>
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          <Image
+            style={styles.foto}
+            source={{ uri: 'https://subali.stikom-bali.ac.id/images/AGS.jpg' }}
+          />
+        </View>
+        <TextInput style={styles.formConttrol} placeholder="Nama Anda" />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => console.log('Submit Diklik')}
+        >
+          <Text
+            style={{
+              color: '#fff',
+              textAlign: 'center'
+            }}
+          >
+            Submit
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  foto: {
+    width: 150,
+    height: 230,
+  },
+  formConttrol: {
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 8,
+    borderColor: '#ddd',
+    margin: 10,
+  },
+  button: {
+    backgroundColor: '#f00',
+    margin: 10,
+    padding: 10,
+    borderRadius: 8,
   },
 });
 
