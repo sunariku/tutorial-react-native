@@ -1,61 +1,106 @@
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Hello World</Text>
-        <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Image
-            style={styles.foto}
-            source={{ uri: 'https://subali.stikom-bali.ac.id/images/AGS.jpg' }}
-          />
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.brandContainer}></View>
         </View>
-        <TextInput style={styles.formConttrol} placeholder="Nama Anda" />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => console.log('Submit Diklik')}
-        >
-          <Text
-            style={{
-              color: '#fff',
-              textAlign: 'center'
-            }}
-          >
-            Submit
-          </Text>
-        </TouchableOpacity>
+        <View style={styles.navigation}>
+          <View style={styles.card}>
+            <View style={styles.cardBody}></View>
+            <View style={styles.cardFooter}>
+              <Text>Footer</Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.order}>
+          <Text style={styles.h1}>Order Again</Text>
+          <View style={{ marginTop: 15 }}>
+            <View style={styles.cardOrder}>
+              <View style={styles.cardBodyOrder}>
+                <View style={styles.cardBodyOrderImage}></View>
+                <View style={styles.cardBodyOrderText}></View>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View style={styles.favorite}></View>
+        <View style={styles.food}></View>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  foto: {
-    width: 150,
-    height: 230,
+  container: {
+    backgroundColor: '#E9ECEF',
+    flex: 1,
   },
-  formConttrol: {
+  header: {
+    backgroundColor: '#ADB5BD',
+    height: 150,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+  navigation: {
+    backgroundColor: '#6C757D',
+    padding: 20,
+  },
+  order: {
+    padding: 20,
+  },
+  favorite: {
+    backgroundColor: '#ADB5BD',
+    height: 300,
+  },
+  food: {
+    backgroundColor: '#495057',
+    height: 400,
+  },
+  brandContainer: {
+    width: 80,
+    height: 80,
+    backgroundColor: '#495057',
+    borderRadius: 50,
+  },
+  card: {
+    width: 120,
+    height: 110,
+  },
+  cardBody: {
+    flex: 1,
+    backgroundColor: '#212529',
+  },
+  cardFooter: {
+    height: 25,
+    alignItems: 'center',
+  },
+  h1: {
+    fontSize: 22,
+  },
+  cardOrder: {
+    width: 240,
+  },
+  cardBodyOrder: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 10,
     borderWidth: 1,
-    padding: 10,
-    borderRadius: 8,
-    borderColor: '#ddd',
-    margin: 10,
+    borderRadius: 8
   },
-  button: {
-    backgroundColor: '#f00',
-    margin: 10,
-    padding: 10,
+  cardBodyOrderImage: {
+    width: 60,
+    height: 60,
+    backgroundColor: '#ADB5BD',
     borderRadius: 8,
+  },
+  cardBodyOrderText: {
+    flex: 1,
+    marginStart: 10,
+    backgroundColor: '#CED4DA'
   },
 });
 
