@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   navigation: {
-    backgroundColor: '#6C757D',
     padding: 20,
   },
   order: {
@@ -67,40 +66,42 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   card: {
-    width: 120,
+    width: 100,
     height: 110,
   },
   cardBody: {
     flex: 1,
+    borderRadius: 8,
     backgroundColor: '#212529',
   },
   cardFooter: {
-    height: 25,
+    height: 20,
     alignItems: 'center',
+    marginTop: 10,
   },
   h1: {
     fontSize: 22,
   },
   cardOrder: {
-    width: 240,
+    width: 320,
   },
   cardBodyOrder: {
     flex: 1,
     flexDirection: 'row',
     padding: 10,
     borderWidth: 1,
-    borderRadius: 8
+    borderRadius: 8,
   },
   cardBodyOrderImage: {
-    width: 60,
-    height: 60,
+    width: 100,
+    height: 100,
     backgroundColor: '#ADB5BD',
     borderRadius: 8,
   },
   cardBodyOrderText: {
     flex: 1,
     marginStart: 10,
-    backgroundColor: '#CED4DA'
+    backgroundColor: '#CED4DA',
   },
 });
 
