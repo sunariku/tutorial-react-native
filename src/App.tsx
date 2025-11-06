@@ -1,56 +1,21 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@react-native-vector-icons/ionicons';
+import BrandComponent from './components/BrandComponent';
+import NavigationItemComponent from './components/NavigationItemComponent';
 
 const App = () => {
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-          <View style={styles.brandContainer}></View>
+          <BrandComponent />
         </View>
         <View style={styles.navigation}>
-          <View style={styles.card}>
-            <View style={styles.cardBody}>
-              <Ionicons name="briefcase-outline" size={40} color={'#ef233c'} />
-            </View>
-            <View style={styles.cardFooter}>
-              <Text>Work</Text>
-            </View>
-          </View>
-          <View style={styles.card}>
-            <View style={styles.cardBody}>
-              <Ionicons name="cart-outline" size={40} color={'#ef233c'} />
-            </View>
-            <View style={styles.cardFooter}>
-              <Text>Cart</Text>
-            </View>
-          </View>
-          <View style={styles.card}>
-            <View style={styles.cardBody}></View>
-            <View style={styles.cardFooter}>
-              <Text>Footer</Text>
-            </View>
-          </View>
-          <View style={styles.card}>
-            <View style={styles.cardBody}></View>
-            <View style={styles.cardFooter}>
-              <Text>Footer</Text>
-            </View>
-          </View>
-          <View style={styles.card}>
-            <View style={styles.cardBody}></View>
-            <View style={styles.cardFooter}>
-              <Text>Footer</Text>
-            </View>
-          </View>
-          <View style={styles.card}>
-            <View style={styles.cardBody}></View>
-            <View style={styles.cardFooter}>
-              <Text>Footer</Text>
-            </View>
-          </View>
+          <NavigationItemComponent title="Work" icon="briefcase-outline" />
+          <NavigationItemComponent title="Cart" icon="cart-outline" />
+          <NavigationItemComponent title="Product" icon="diamond-outline" />
+          <NavigationItemComponent title="Trans" icon="documents-outline" />
         </View>
         <View style={styles.order}>
           <Text style={styles.h1}>Order Again</Text>
@@ -133,9 +98,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    gap: 20,
+    gap: 10,
     backgroundColor: '#FFFFFF',
     padding: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   order: {
     backgroundColor: '#FFFFFF',
@@ -148,30 +115,6 @@ const styles = StyleSheet.create({
   food: {
     backgroundColor: '#FFFFFF',
     padding: 20,
-  },
-  brandContainer: {
-    width: 80,
-    height: 80,
-    backgroundColor: '#edf2f4',
-    borderRadius: 50,
-  },
-  card: {
-    width: 90,
-    height: 110,
-  },
-  cardBody: {
-    flex: 1,
-    borderRadius: 16,
-    backgroundColor: '#fff0f3',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: '#ef233c',
-  },
-  cardFooter: {
-    height: 20,
-    alignItems: 'center',
-    marginTop: 10,
   },
   h1: {
     fontSize: 22,
