@@ -8,6 +8,8 @@ import TransScreen from './screens/TransScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@react-native-vector-icons/ionicons';
 import LoginScreen from './screens/LoginScreen';
+import TransDetailScreen from './screens/TransDetailScreen';
+import TransCreateScreen from './screens/TransCreateScreen';
 
 const Stack = createNativeStackNavigator();
 const Root = createNativeStackNavigator();
@@ -23,18 +25,45 @@ const HomeStack = () => {
       />
       <Stack.Screen name="Cart" component={CartScreen} />
       <Stack.Screen name="Product" component={ProductScreen} />
-      <Stack.Screen name="Trans" component={TransScreen} />
+      <Stack.Screen
+        name="Trans"
+        component={TransStack}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const TransStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="TransAll"
+        component={TransScreen}
+        options={{ title: 'Trans All' }}
+      />
+      <Stack.Screen
+        name="TransDetail"
+        component={TransDetailScreen}
+        options={{ title: 'Trans Detail' }}
+      />
+      <Stack.Screen
+        name="TransCreate"
+        component={TransCreateScreen}
+        options={{ title: 'Trans Create' }}
+      />
     </Stack.Navigator>
   );
 };
 
 const MainTab = () => {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
+    <Tab.Navigator>
       <Tab.Screen
         name="Home"
         component={HomeStack}
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <Ionicons name="home-outline" size={24} color={'#ef233c'} />
           ),
@@ -42,8 +71,9 @@ const MainTab = () => {
       />
       <Tab.Screen
         name="Trans"
-        component={TransScreen}
+        component={TransStack}
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <Ionicons name="documents-outline" size={24} color={'#ef233c'} />
           ),
@@ -57,7 +87,11 @@ const App = () => {
   return (
     <NavigationContainer>
       <Root.Navigator initialRouteName="MainTab">
-        <Root.Screen name="MainTab" component={MainTab} options={{headerShown: false}} />
+        <Root.Screen
+          name="MainTab"
+          component={MainTab}
+          options={{ headerShown: false }}
+        />
         <Root.Screen
           name="Login"
           component={LoginScreen}
