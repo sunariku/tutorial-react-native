@@ -17,7 +17,7 @@ const Tab = createBottomTabNavigator();
 
 const HomeStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="HomeMain">
       <Stack.Screen
         name="HomeMain"
         component={HomeScreen}
@@ -25,18 +25,13 @@ const HomeStack = () => {
       />
       <Stack.Screen name="Cart" component={CartScreen} />
       <Stack.Screen name="Product" component={ProductScreen} />
-      <Stack.Screen
-        name="Trans"
-        component={TransStack}
-        options={{ headerShown: false }}
-      />
     </Stack.Navigator>
   );
 };
 
 const TransStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="TransAll">
       <Stack.Screen
         name="TransAll"
         component={TransScreen}
@@ -68,6 +63,19 @@ const MainTab = () => {
             <Ionicons name="home-outline" size={24} color={'#ef233c'} />
           ),
         }}
+        listeners={({ navigation, route }: any) => ({
+          tabPress: e => {
+            const state = route.state;
+            const currentRoute = state?.routes[state.index]?.name;
+
+            if (currentRoute !== 'HomeMain') {
+              e.preventDefault();
+              navigation.navigate('Home', {
+                screen: 'HomeMain',
+              });
+            }
+          },
+        })}
       />
       <Tab.Screen
         name="Trans"

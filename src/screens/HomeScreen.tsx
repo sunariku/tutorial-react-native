@@ -28,9 +28,9 @@ const HomeScreen = () => {
             page="Product"
           />
           <NavigationItemComponent
-            title="Trans"
+            title="Service"
             icon="documents-outline"
-            page="Trans"
+            page="Service"
           />
         </View>
         <View style={styles.order}>
